@@ -6,6 +6,7 @@ import (
 	"github.com/gen2brain/go-fitz"
 	"github.com/ncruces/zenity"
 	"image/jpeg"
+	"strconv"
 )
 
 func PDFToImg() [][]byte {
@@ -25,6 +26,13 @@ func PDFToImg() [][]byte {
 	var images [][]byte
 
 	for n := 0; n < doc.NumPage(); n++ {
+
+		if n == 0 {
+			fmt.Print("Getting page " + strconv.Itoa(n))
+		} else {
+			fmt.Print("\rGetting page " + strconv.Itoa(n))
+		}
+
 		img, err := doc.Image(n)
 		if err != nil {
 			panic(err)
@@ -39,6 +47,6 @@ func PDFToImg() [][]byte {
 
 		images = append(images, buf.Bytes())
 	}
-
+	fmt.Print("\n")
 	return images
 }

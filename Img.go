@@ -99,7 +99,7 @@ func saveImages(images [][]byte) {
 	}
 	fmt.Println("Writing images to " + alias + " directory...")
 	for i, image := range images {
-		err := os.WriteFile(imgDir+strconv.Itoa(i)+".jpg", image, 0644)
+		err := os.WriteFile(imgDir+strconv.Itoa(i+1)+".jpg", image, 0644)
 		if err != nil {
 			return
 		}
