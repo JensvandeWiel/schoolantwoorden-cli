@@ -27,6 +27,6 @@ jobs:
         uses: goreleaser/goreleaser-action@master
         with:
           version: latest
-          args: release --rm-dist --config /home/runner/work/corruptWordMaker/corruptWordMaker/.goreleaser.yaml
+          args: release --rm-dist --config /home/runner/work/schoolantwoorden-cli/schoolantwoorden-cli/.goreleaser.yaml
         env:
           GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
